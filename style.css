@@ -1,0 +1,58 @@
+*{
+    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    height: 100%;
+    background-color: #2f3e46;
+    color: #cad2c5;
+    line-height: 1.5;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+body{
+    max-width: var(--maxw);
+    margin: 36px auto;
+    padding: 32px;
+}
+h1.portfolio{
+    font-size: 2.1rem;
+    letter-spacing: -0.5px;
+    margin-bottom: 18px;
+    text-align: center;
+}
+div.aboutme,div.contact,div.projects{
+    background: linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.0.1));
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255,255,255,0.03);
+}
+div.aboutme h2{
+    font-size: 1.1rem;
+    color: #cad2c5;
+    margin-bottom: 8px;
+}
+div.aboutme p{
+    color: #cad2c5;
+    margin-bottom: 12px;
+    white-space: pre-wrap;
+}
+div.aboutme ul{
+    margin-top: 8px;
+    list-style: none;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+}
+div.aboutme li{
+    padding: 8px 12px;
+    background: var(--glass);
+    border-radius: 8px;
+    color: #cad2c5;
+    font-size: 0.98rem;
+    border: 1px solid rgba(255,255,255,0.02);
+}
