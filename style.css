@@ -1,58 +1,193 @@
-*{
-    
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Reset i podstawowe style */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-html,body{
-    height: 100%;
-    background-color: #2f3e46;
-    color: #cad2c5;
-    line-height: 1.5;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+:root {
+  --bg: #0f1724;         
+  --card: #0f1724ff;
+  --panel: #0b1220;      
+  --accent: #6ee7b7;     
+  --muted: #94a3b8;      
+  --text: #e6eef8;       
+  --glass: rgba(255,255,255,0.03);
+  --radius: 12px;
+  --maxw: 1100px;
+  font-size: 16px;
 }
-body{
-    max-width: var(--maxw);
-    margin: 36px auto;
-    padding: 32px;
+
+html, body {
+  height: 100%;
+  background: linear-gradient(180deg, #071029 0%, #081426 60%);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-h1.portfolio{
-    font-size: 2.1rem;
-    letter-spacing: -0.5px;
-    margin-bottom: 18px;
-    text-align: center;
+
+body > .container {
+  max-width: var(--maxw);
+  margin: 36px auto;
+  padding: 32px;
 }
-div.aboutme,div.contact,div.projects{
-    background: linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.0.1));
-    border-radius: var(--radius);
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255,255,255,0.03);
+
+.container, body {
+  padding-left: 20px;
+  padding-right: 20px;
 }
-div.aboutme h2{
-    font-size: 1.1rem;
-    color: #cad2c5;
-    margin-bottom: 8px;
+
+/* -------------------- */
+/* Nagłówek Portfolio   */
+/* -------------------- */
+h1.portfolio {
+  font-size: 2.1rem;
+  letter-spacing: -0.5px;
+  margin-bottom: 18px;
+  color: var(--accent);
+  text-align: center;
 }
-div.aboutme p{
-    color: #cad2c5;
-    margin-bottom: 12px;
-    white-space: pre-wrap;
+
+/* -------------------- */
+/* Sekcje O mnie i Kontakt */
+/* -------------------- */
+.topSections {
+  display: grid;
+  grid-template-columns: 2fr 1fr; 
+  gap: 20px;
+  margin-bottom: 30px;
 }
-div.aboutme ul{
-    margin-top: 8px;
-    list-style: none;
-    padding-left: 0;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 8px;
+
+.topSections > div {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: 0 6px 20px rgba(2,6,23,0.55), inset 0 1px 0 rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.03);
 }
-div.aboutme li{
-    padding: 8px 12px;
-    background: var(--glass);
-    border-radius: 8px;
-    color: #cad2c5;
-    font-size: 0.98rem;
-    border: 1px solid rgba(255,255,255,0.02);
+
+.aboutme h2, 
+.contact h2 {
+  font-size: 1.1rem;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.aboutme p {
+  margin-bottom: 12px;
+}
+
+.aboutme ul {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.aboutme li {
+  padding: 8px 12px;
+  background: var(--glass);
+  border-radius: 8px;
+  font-size: 0.98rem;
+  border: 1px solid rgba(255,255,255,0.02);
+}
+
+.contact ul {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+/* Elementy listy kontaktowej */
+div.contact li {
+  display: flex;               
+  align-items: center;
+  gap: 10px;                   
+  padding: 10px;
+  background: rgba(255,255,255,0.02); 
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.02);
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+div.contact li img {
+  width: 20px;               
+  height: 20px;
+  object-fit: contain;         
+  background: none;            
+  border: none;                
+  opacity: 0.7;               
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+ li:hover {
+  opacity: 1;
+  transform: scale(1.01);       
+}
+
+/* -------------------- */
+/* Projekty             */
+/* -------------------- */
+.projects {
+  margin: 30px 0;
+}
+
+.projects h3 {
+  text-align: center;
+  color: var(--accent);
+  margin-bottom: 16px;
+  font-size: 1.2rem;
+}
+
+/* kontener projektów */
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  gap: 20px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: 0 6px 20px rgba(2,6,23,0.55), inset 0 1px 0 rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* pojedynczy projekt */
+.projects-container > div {
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+  border: 1px solid rgba(255,255,255,0.025);
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--text);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.projects-container > div:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+/* -------------------- */
+/* Responsywność        */
+/* -------------------- */
+@media (max-width: 900px) {
+  .topSections {
+    grid-template-columns: 1fr; 
+  }
+}
+
+@media (max-width: 580px) {
+  h1.portfolio { font-size: 1.5rem; margin-bottom: 12px; }
+
+  .aboutme, .contact, .projects {
+    padding: 14px;
+    border-radius: 10px;
+  }
+
+  .aboutme ul { gap: 6px; }
+  .contact li { font-size: 0.92rem; }
 }
